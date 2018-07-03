@@ -2,7 +2,7 @@
 #this script is used to get tcp and udp connetion status
 #tcp status
 metric=$1
-export PATH=$PATH:/bin:/usr/bin
+export PATH=$PATH:/bin:/usr/sbin
 case $metric in
    closed)
           output=$(ss  -tan|awk 'NR>1{++S[$1]}END{for (a in S) print a,S[a]}'|awk '/UNCONN/{print $2}')
